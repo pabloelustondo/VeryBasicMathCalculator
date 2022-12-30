@@ -1,0 +1,54 @@
+Very Basic Calculator Requirements
+
+Parse and evaluate simple math word problems returning the answer as an integer.
+
+Iteration 0 — Numbers
+Problems with no operations simply evaluate to the number given.
+
+What is 5?
+
+Evaluates to 5.
+ 
+
+Iteration 1 — Addition
+Add two numbers together.
+
+What is 5 plus 13?
+
+Evaluates to 18.
+
+Handle large numbers and negative numbers. 
+
+Iteration 2 — Subtraction, Multiplication and Division
+Now, perform the other three operations.
+
+What is 7 minus 5?
+
+2
+
+What is 6 multiplied by 4?
+
+24
+
+What is 25 divided by 5?
+
+5
+
+ 
+Question and Answers
+
+1. Am I supposed to parse general natural language ?  I see expressions such as "What is 5?" and I do not see any valid syntax definition or constraints. Maybe you want me to define some valid syntax?
+
+Of course, I can define a very simple syntax if that is the case, but I want to be sure of your expectations. Maybe you can write a reasonable number of use case scenarios ?
+
+[SA] Defining a simple syntax on your own is sufficient – only consider the numerical followed by ‘What is’ for conversion. 
+
+2. On Iteration 0. (no operations)  Can we assume that we only have one number?. – [SA] YES, assume only 1 number
+
+3. On Iteration 1 (addition) can assume that “addition” is always represented by the word “plus”, or can we have other symbols / synonyms.  – [SA] No other synonyms, only ‘plus’ is sufficient as mentioned.
+
+4. On Iteration 2 (other operations) can we assume that we only have one operator? – Yes, only 1 operation per request. and similarly to 3, can we assume that operators have to match a specific name? [SA] Yes, only ‘minus’ for subtraction, ‘multiplied by’ for multiplication and ‘divided by’ for division.
+
+Again, I can define all this bty my own, but I am not sure what your general expectation is. Having a thorough list of use cases may be the easiest.
+
+By the way, I assumed english is the only supported language. YES, only English
