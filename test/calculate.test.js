@@ -40,7 +40,7 @@ describe("calculate", function () {
         ErrorMessage.Syntax.MustStartWithWhatIs
       );
     });
-    it("throws error if no valid number is provided", () => {
+    it("throws error if no valid first number is provided", () => {
       let error = null;
       try {
         calculator.calculate("What is a?");
@@ -55,12 +55,12 @@ describe("calculate", function () {
   });
 
   describe("Iteration 1: Addition", function () {
-    it("returns 7 from What is 5 plus 2?", () => {
+    it("(basic plus) returns 7 from What is 5 plus 2?", () => {
       const result = calculator.calculate("What is 5 plus 2?");
       expect(result.toString()).to.be.equal("7");
     });
 
-    it("adds two very big numbers with absolute precision ", () => {
+    it("(big numbers) adds two very big numbers with absolute precision ", () => {
       const bigNumber =
         "1000000000000000000000000000000000000000000000000000000000000000000000";
       const expectedResult =
@@ -69,6 +69,63 @@ describe("calculate", function () {
         .calculate(`What is ${bigNumber} plus 1?`)
         .toString();
       expect(result.toString()).to.be.equal(expectedResult);
+    });
+
+    it("(negatives 1) returns 5 from What is 10 plus -5?", () => {
+      const result = calculator.calculate("What is 10 plus -5?");
+      expect(result.toString()).to.be.equal("5");
+    });
+
+    it("(negatives 2) returns -15 from What is -10 plus -5?", () => {
+      const result = calculator.calculate("What is -10 plus -5?");
+      expect(result.toString()).to.be.equal("-15");
+    });
+
+    it("throws error if no valid second number provided", () => {
+      let error = null;
+      try {
+        calculator.calculate("What is 5 plus?");
+      } catch (e) {
+        error = e;
+      }
+      expect(error).to.not.be.null;
+      expect(error.message).to.be.equal(
+        ErrorMessage.Syntax.CannotParseSecondNumber
+      );
+    });
+  });
+
+  describe("Iteration 2: Subtraction", function () {
+    it("(basic minus) returns 7 from What is 9 minus 2?", () => {
+      const result = calculator.calculate("What is 9 minus 2?");
+      expect(result.toString()).to.be.equal("7");
+    });
+  });
+
+  describe("Iteration 2: Multiplication", function () {
+    it("(basic multiply ) returns 18 from What is 9 multiplied by 2?", () => {
+      const result = calculator.calculate("What is 9 multiplied by 2?");
+      expect(result.toString()).to.be.equal("18");
+    });
+  });
+
+  describe("Iteration 2: Division", function () {
+    it("(basic division) returns 9 from What is 18 divided by 2?", () => {
+      const result = calculator.calculate("What is 18 divided by 2?");
+      expect(result.toString()).to.be.equal("9");
+    });
+
+    it("(divided by 0) throws error from What is 18 divided by 0?", () => {
+      let error = null;
+      try {
+        calculator.calculate("What is 18 divided by 0?");
+      } catch (e) {
+        error = e;
+      }
+      expect(error).to.not.be.null;
+      expect(error.message).to.be.equal(
+        ErrorMessage.Execution.CannotDivideByZero
+      );
     });
   });
 });

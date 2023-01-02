@@ -14,6 +14,8 @@ const ErrorMessage = {
   },
 
   Execution: {
+    CannotDivideByZero:
+      "A division operation cannot be performed using zero as second argument",
     CannotExecuteMathematicalOperation:
       "Cannot execute mathematical operation. This may be due to an unexpected error in underlying math library or code. Please, report this error.",
   },
@@ -30,7 +32,7 @@ class BcSyntaxError extends Error {
    */
   constructor(message) {
     super(message);
-    this.name = "ValidationError";
+    this.name = "SyntaxError";
   }
 }
 

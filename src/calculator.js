@@ -88,24 +88,31 @@ class BasicCalculator {
 
     //Calculate resulting number after applying operation
 
+    const zero = this.Decimal("0");
+
     try {
       switch (operator) {
         case "plus":
           return firstNumber.plus(secondNumber);
         case "minus":
-          return firstNumber - secondNumber; // TODO
+          return firstNumber.minus(secondNumber);
         case "multiplied":
-          return firstNumber * secondNumber; // TODO
+          return firstNumber.mul(secondNumber);
         case "divided":
-          if (secondNumber > 0) {
-            return firstNumber / secondNumber; // TODO
+          if (secondNumber.greaterThan(zero)) {
+            return firstNumber.div(secondNumber);
           } else {
+            throw new BcSyntaxError(ErrorMessage.Execution.CannotDivideByZero);
           }
       }
-    } catch (e) {
-      throw new BcExecutionError(
-        ErrorMessage.Execution.CannotExecuteMathematicalOperation
-      );
+    } catch (error) {
+      if ((error.name = "SyntaxError")) {
+        throw error;
+      } else {
+        throw new BcExecutionError(
+          ErrorMessage.Execution.CannotExecuteMathematicalOperation
+        );
+      }
     }
   }
 
