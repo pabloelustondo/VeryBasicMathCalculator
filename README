@@ -1,12 +1,12 @@
 This project contains a very simple math calculator base the specs you can find in ./docs
 
-To can use this calculator on a console.
+To can use this calculator on a console do:
 
 npm install
 npm start
 
 
-Sample Session Run after npm start:
+This ia sample session console output after npm start:
 
 ===== Very Basic Calculator - Command Line ====
 ----- Enter a question following the examples below
