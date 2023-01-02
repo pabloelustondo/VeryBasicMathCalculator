@@ -13,5 +13,9 @@
     "chai": "^4.3.7",
     "eslint": "^8.31.0",
     "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mathjs": "^11.5.0"
   }
 }

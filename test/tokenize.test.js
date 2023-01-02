@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const chai = require("chai");
 const expect = chai.expect;
-const VeryBasicCalculator = require("../../src/calculator");
+const VeryBasicCalculator = require("../src/calculator");
 describe("tokenize", function () {
   const calculator = new VeryBasicCalculator();
   describe("remove empty tokens / spaces", function () {

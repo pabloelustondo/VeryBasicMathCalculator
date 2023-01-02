@@ -1,22 +1,33 @@
 This project contains a very simple math calculator base the specs you can find in ./docs
+There is a grammar description in the calculator class file. Here are some handy exmples in the
+sample console output below.
 
-To can use this calculator on a console do:
+To use this calculator do the typical
 
 npm install
+npm test (optional)
 npm start
 
+the .env file has a default very high numeric precision, you can change that to your needs.
+MATH_PRECISION=300
 
 This ia sample session console output after npm start:
 
-===== Very Basic Calculator - Command Line ====
------ Enter a question following the examples below
------ What is 5? =>  5
------ What    is    5? =>  5
------ What 5? =>  error
------ type exit to exit 
-ENTER MATH QUESTION: What is 4?
-4
-ENTER MATH QUESTION: 
-
-
-use npm test to run all unit tests
+                VeryBasicMathCalculator$ npm start
+                > cibc@1.0.0 start
+                > node ./src/cli.js
+                ===== Very Basic Calculator - Command Line ====
+                ----- Enter a question following the examples below
+                ----- What is 5? =>  5
+                ----- What    is    5? =>  5
+                ----- What 5? =>  error
+                ----- type exit to exit
+                ENTER MATH QUESTION: What is 5?
+                5
+                ENTER MATH QUESTION: What is ?
+                Cannot parse the first number provided
+                ENTER MATH QUESTION: What is 5 plus 8      ?
+                13
+                ENTER MATH QUESTION: What is 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 plus 1 ?
+                1.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001e+125
+                ENTER MATH QUESTION:
